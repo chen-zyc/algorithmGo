@@ -39,3 +39,19 @@ func SliceDeleteInt(slice []int, index int) []int {
 	}
 	return append(slice[:index], slice[index+1:]...)
 }
+
+func CopySliceInt64(src []int64) []int64 {
+	dst := make([]int64, len(src))
+	for i := 0; i < len(src); i++ {
+		dst[i] = src[i]
+	}
+	return dst
+}
+
+func CopySliceInt(src []int) []int {
+	dst := make([]int, len(src))
+	for i := 0; i < len(src); i++ {
+		dst[i] = src[i]
+	}
+	return dst
+}
