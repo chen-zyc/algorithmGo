@@ -1,8 +1,6 @@
 package sort
 
-import (
-	"sort"
-)
+import "sort"
 
 /**************** 插入排序 ******************/
 

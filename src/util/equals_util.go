@@ -24,6 +24,10 @@ func Equals(i1, i2 EqualsInterface) bool {
 	return true
 }
 
+func EqualsIntSlice(s1, s2 []int) bool {
+	return Equals(IntSlice(s1), IntSlice(s2))
+}
+
 /*********** 包装的一些常用切片 ****************/
 
 type StringSlice []string
