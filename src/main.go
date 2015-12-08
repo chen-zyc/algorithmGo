@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	a := []int{4, 3, 5}
-	fmt.Println(fmt.Sprint(a))
+	fmt.Println("Hello")
 }
