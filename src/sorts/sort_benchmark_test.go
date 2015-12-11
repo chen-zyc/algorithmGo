@@ -65,3 +65,42 @@ func BenchmarkQuickSort(b *testing.B) {
         checkSortedData(bigData)
 	}
 }
+
+var randomBigDataUint []uint
+var randomBigDataMaxUint uint
+
+func geneRandomBigDataUint() ([]uint, uint) {
+	if len(randomBigDataUint) > 0 {
+		return randomBigDataUint, randomBigDataMaxUint
+	}
+	rand.Seed(time.Now().Unix())
+	randomBigDataUint = make([]uint, 1e5)
+	for i := 0; i < len(randomBigDataUint); i++ {
+		n := uint(rand.Intn(100))
+		randomBigDataUint[i] = n
+		if n > randomBigDataMaxUint {
+			randomBigDataMaxUint = n
+		}
+	}
+	return randomBigDataUint, randomBigDataMaxUint
+}
+
+func BenchmarkCountingSort(b *testing.B) {
+	in, max := geneRandomBigDataUint()
+	for i := 0; i < b.N; i++ {
+		out := CountingSort(in, max)
+		if !util.SliceSortedUint(out) {
+			b.Errorf("%v is not a sorted array", out)
+		}
+	}
+}
+
+func BenchmarkCountingSort2(b *testing.B) {
+	in, max := geneRandomBigDataUint()
+	for i := 0; i < b.N; i++ {
+		out := CountingSort2(in, max)
+		if !util.SliceSortedUint(out) {
+			b.Errorf("%v is not a sorted array", out)
+		}
+	}
+}

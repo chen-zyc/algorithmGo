@@ -55,3 +55,21 @@ func CopySliceInt(src []int) []int {
 	}
 	return dst
 }
+
+func SliceSortedInt(slice []int) bool {
+	for i := 1; i < len(slice); i++ {
+		if slice[i] < slice[i-1] {
+			return false
+		}
+	}
+	return true
+}
+
+func SliceSortedUint(slice []uint) bool {
+	for i := 1; i < len(slice); i++ {
+		if slice[i] < slice[i-1] {
+			return false
+		}
+	}
+	return true
+}
