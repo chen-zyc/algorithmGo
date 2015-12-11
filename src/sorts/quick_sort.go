@@ -1,4 +1,4 @@
-package sort
+package sorts
 
 import (
 	"math/rand"
@@ -30,8 +30,8 @@ func doQuickSort(data sort.Interface, start, end int, pivotSelector PivotSelecto
 	if start < end { // 确保至少有两个元素
 		mid := partition(data, start, end, pivotSelector)
 		// 除了中间的元素，剩下的分为两组进行排序
-		doQuickSort(data, start, mid-1)
-		doQuickSort(data, mid+1, end)
+		doQuickSort(data, start, mid-1, pivotSelector)
+		doQuickSort(data, mid+1, end, pivotSelector)
 	}
 }
 
